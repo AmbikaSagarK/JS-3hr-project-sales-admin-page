@@ -1,0 +1,216 @@
+</head>
+<body>
+  <div class="container">
+      <table class="table table-primary"> 
+          <form>
+            <label for="email">Email</label>-change to this-<label for="email" class="form-label">Email</label>
+            <input type="email" id="email">-change to this-<input type="email" id="email" class="form-control">
+            <button>Submit</button>
+          </form>
+  </div>
+</body>
+
+select input
+
+<div class="container"></div>
+<form>
+    <label for="email">Email</label>-change to this-<label for="email" class="form-label">Email</label>
+    <select>-change to this-<select class="form-select form-select-sm">
+        <option>1</option>
+        <option>2</option>
+    </select>
+    <button>Submit</button>
+  </form>
+</div>
+</body>
+</html>
+
+
+CheckBoxes input
+
+<div class="container"></div>
+<form>
+  <div class="form check form-switch form-check-inline"
+  <input type="checkbox" id="email" class="form-check-input" />  
+  <label for="email" class="form-check-label">Email</label>-change to this-<label for="email" class="form-label">Email</label>
+</div>
+<div class="form check form-switch form-check-inline"
+  <input type="checkbox" id="email" class="form-check-input" />  
+  <label for="email" class="form-check-label">Email</label>-change to this-<label for="email" class="form-label">Email</label>
+</div>
+    <button>Submit</button>
+  </form>
+</div>
+</body>
+</html>
+
+Input group
+<div class="container"></div>
+<form>
+  <label for="text" class="form-label">Amount</label>
+  <div class="input-group input-group-sm">
+    <div class="input-group-text">$</div>
+  <input type="number" id="text" class="form-control" />  
+  <button class="btn btn-primary">+</button>
+  
+</div>
+    <button>Submit</button>
+  </form>
+</div>
+</body>
+</html>
+
+
+Cool features-form floating
+<div class="container">
+<form>
+  <div class="form-floating">
+  <input type="email" id="email" class="form-control" placeholder="Place email here" />  
+  <label for="email">Email</label>
+</div>
+    <button>Submit</button>
+  </form>
+</div>
+</body>
+</html>
+
+Form-validation
+
+<div class="container">
+<form novalidate>
+  <div class="form-floating">
+  <input type="email" id="email" class="form-control" placeholder="Place email here" required>  
+  <label for="email">Email</label>
+  <div class="invalide-feedback">Invalid email</div>
+  <div class="invalide-feedback">Correct email</div>
+</div>
+    <button>Submit</button>
+  </form>
+</div>
+<script>
+  const form = document.querySelector("form")
+  form.addEventListener('submit',e=>{
+    if(!form.checkValidity()){
+      e.preventDefault()
+    }
+    form.classList.add("was-validated")
+  })
+</script>
+</body>
+</html>
+
+
+Card component
+<div class="container">
+
+  <div class="card" style="width=300px;">
+    </div>
+    
+    <h2 class="card-header">Header</h2>
+    <div class="card-body">
+      <h2 class="card-title">Title</h2>
+      <span class="card-subtitle">Subtitle</span>
+      <div class="card-text">
+        AMbika is software engineer
+      </div>
+    </div>
+    <div class="card-footer">Footer</div>
+  </div>
+</div>
+</body>
+</html>
+
+Modal component
+<div class="container">
+<button class="btn btn-primary" data-bs-toggle="modal" 
+data-bs-target="modal">Open</button>
+  <div class="modal fade" id="modal">
+    <div class="modal-dialogue modal-fullscreen-md-down>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1>Header</h1>
+        <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+    <div class="modal-body">Body</div>
+    <div class="modal-footer">Footer</div>
+    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+Utility component 
+<div class="container">
+  <button class="btn btn-primary" data-bs-toggle="collapsa" 
+  data-bs-target=".row" aria-expande="false" aria-controls="row">Toggle</button>
+    <div class="row collapse" id="row">
+      <div class="col">
+      <div class="box"></div>
+      
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>
+
+  Navbar component1
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a href="#" class="navbar-brand">Brand</a>
+    <button class="navbar-toggler" data-bs-toggler=" collpase" 
+    data-bs-target="#nav" aria-controlls="nav" aria-label="Expand Navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collpase" id=" nav">
+      <ul class="navbar-nav">
+    </div>
+    
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+     </nav> 
+     <div class="container">
+      I am ambika
+     </div>
+    </body>
+    </html>
+
+    Card simple
+    <div class="container">
+      <div class="card opacity-50">
+        <div class="card-body">
+          <a href="#" class="text-dark">Hi</a>  use link also
+          hi ambika
+        </div>
+      </div>
+      </div>
+    </body>
+    </html>
+
+    Stack-H&V stack
+    <div class="container">
+
+      <div class="card capacity-50">
+        <div class="card-body">
+          <div class="vstack gap-3"> - hstack also
+            <div class="box" style="width:100%;"></div>
+            <div class="box" style="width:100%;"></div>
+            <div class="box" style="width:100%;"></div>
+            <div class="box" style="width:100%;"></div>
+          <div class="box" style="width:100%;"></div>
+        </div>
+      </div>
+      </div>
+    </div>
+    </body>
+    </html>
+    
