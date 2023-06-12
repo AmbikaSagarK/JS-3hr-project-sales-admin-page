@@ -25,14 +25,15 @@ function getTodos() {
 // POST REQUEST
 function addTodo() {
   axios
-    .post('https://jsonplaceholder.typicode.com/todos', {
+    .post('https://jsonplaceholder.typicode.com/todos', 
+    {
       title: 'New Todo',
       completed: false
     })
     .then(res => showOutput(res))
     .catch(err => console.error(err));
-}
-
+ }
+  
 // PUT/PATCH REQUEST
 function updateTodo() {
   axios
@@ -41,7 +42,7 @@ function updateTodo() {
       completed: true
     })
     .then(res => showOutput(res))
-    .catch(err => console.error(err));
+     .catch(err => console.error(err));
 }
 
 // DELETE REQUEST
@@ -164,9 +165,9 @@ axios.interceptors.request.use(
   error => {
     return Promise.reject(error);
   }
-);
-
-// AXIOS INSTANCE
+);   
+  
+// AXIOS INSTANCE   
 const axiosInstance = axios.create({
   // Other custom settings
   baseURL: 'https://jsonplaceholder.typicode.com'
