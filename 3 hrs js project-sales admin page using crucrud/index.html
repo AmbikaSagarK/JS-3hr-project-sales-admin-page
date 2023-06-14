@@ -7,9 +7,9 @@
   padding: 16px;
 }
     form {
-      background-color:orange;
+      background-color:white;
       font-size: 20px;
-      color: greenyellow;
+      color: black;
       text-align: center;
       
     }
@@ -23,48 +23,47 @@
   </head>
   <body>
     <form onsubmit="saveToLocalStorage(event)">  
-        <label> Name </label>
+        <label> Selling price </label>
         <br>
-        <input id="username" type="text" name="visitor_name" required>    
+        <input id="amount" type="number" name="amount" required>
+        <br>    
+        <label> Product name </label>
         <br>
-        <label> emailId </label>
+        <input id="name" type="text" name="name" required>  
+        <br> 
+        <label>catagory </label>      
         <br>
-        <input id="email" type="email" name="visitor_email" required>
-        <br>
-        <label>phone </label>
-        <br>
-        <input id="phonenumber" type="tel" name="visitor_phone" required>
-        <br>
+        <input id="catagory" type="text" name="catagory" required>  
+        <br>      
        <button onclick=""> Submit </button>
       <li>
         <button type="Delete">Delete</button>
-        <button type="Edit">Edit</button>
       </li>
     </form>
-    <ul id="listOfUsers"></ul>
+    <ul id="listOfProducts"></ul>
     //<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     <script>
       function saveToLocalStoarage(event){
         event.preventDefault();
-      const name = event.target.username.value;
-      const email = event.target.emailId.value;
-      const phonenumber = event.target.phonenumber.value;
+      const price = event.target.amount.value;
+      const name = event.target.productname.value;
+      const catagory = event.target.catagory.value;
     //   localStorage.setItem('name',name);
     //   localStorage.setItem('email',email);
     //    localStorage.setItem('phonenumber',phonenumber);
 
        const obj = {
+        amount,
         name,
-        email,
-        phonenumber
+        catagory,
        }
 
-       axios.post("https://crudcrud.com/api/7bd568e301f041d7a932adf4cba5a369/bookingappointnment",obj)
+       axios.post("https://crudcrud.com/api/7bd568e301f041d7a932adf4cba5a369/saleadminpage",obj)
        .then((response) =>   {
-        showNewUserOnScreen(response.data)
+        showProductOnScreen(response.data)
         //console.log(response)
        })
-       //if something goes wrong
+       //if something goes wrong    
        .catch((error) =>{
         document.body.innerHTML = document.body.innerHTML + "<h4> Something Went wrong </h4>"
         consolr.log(err)
@@ -74,12 +73,12 @@
       }
       
       window.addEventListener("DOMContentLoaded", () => {
-        const date = axios.delete("https://crudcrud.com/api/65e1c4fa6be04cbebaf5f7395dd10b0c/bookingappointnment/648416a3456f2b03e80bc86d")
+        const date = axios.delete("https://crudcrud.com/api/65e1c4fa6be04cbebaf5f7395dd10b0c/saleadminpage/648416a3456f2b03e80bc86d")
         .then((response) => {
            // console.log(response);
 
             for(var i=0; i<response.data.length; i++) {
-                showNewUserOnScreen(response.data[i])
+                showProductOnScreen(response.data[i])
             }
          })
          .catch=((error) => {
@@ -96,28 +95,27 @@
         //     showNewUserOnScreen(userDetailsObj)
         // }
       })
-      function showNewUserOnScreen(user){
-        document.getElementById('email').value='';
-        document.getElementById('username').value='';
-        document.getElementById('phonenumber').value='';
+      function showProductOnScreen(user){
+        document.getElementById('amount').value='';
+        document.getElementById('name').value='';
+        document.getElementById('catagory').value='';
         //console.log(localStorage.getItem(user.emailId))
         if(localStorage.getItem(user.email) !==null) {
           removeUserFromScree(user.email)
         }
-        const parentNode = document.getElementById('ListOfUsers');
-        const ChildHTML = '<li id=$(user._id)> $(user.name) -$(user.email)
-                          <button onclick ="deleteUser('$(user._id)')> Delete User </button>" 
-                            <button onclick = " editUserDetails('$(user._id)','$(user.name)','$(user.phonenumber)','$(user._id)')> Edit User </button>"
-                            </li>'
+        const parentNode = document.getElementById('ListOfProducts');
+        const ChildHTML = <li id='$(user._id)'> '$(user.name)','$(user.email)'
+                          <button onload ="deleteUser('$(user._id)')>Delete</button>" 
+                            </li>
 
       ParentNode.innerHTML = parentNode.innerHTML + childHTML;
       }
 
       //Edit user
-      function editUserDetails(emailId, name, phonenumber, userId) {
-      document.getElementById('username').value=name;
-      document.getElementById('emailId').value=emailId;
-      document.getElementById('phoneNumber').value=phoneNumber;
+      function editUserDetails(amount, name, phonenumbercatagory, userId) {
+      document.getElementById('amount').value=amount;
+      document.getElementById('name').value=name;
+      document.getElementById('catagory').value=catagory;
 
       deleteUser(userId)    
       }
@@ -125,17 +123,17 @@
       //deleteuser
 
       function deleteUser(userId){
-      axios.delete('https://crudcrud.com/api/65e1c4fa6be04cbebaf5f7395dd10b0c/bookingappointnment/$(userId)')
+      axios.delete('https://crudcrud.com/api/65e1c4fa6be04cbebaf5f7395dd10b0c/saleadminpage/$(userId)')
       .then((response)=>{
-        removeUserFromScreen(userId)
+        removeProductFromScreen(userId)
       })
        .catch((err) => {
         console.log(err);
        })
       }
-      function removeUserFromScreen(userId){
-        const parentNode = document.getElementbyId('listOfUsers');
-        const childNodeToBeDeleted = document.getElementbyId(emailId);
+      function removeProductFromScreen(userId){
+        const parentNode = document.getElementbyId('listOfProducts');
+        const childNodeToBeDeleted = document.getElementbyId(catagory);
         if(childNodetoBeDeleted){
           parentNode.removeChild(childNodetoBeDeleted)
         }
